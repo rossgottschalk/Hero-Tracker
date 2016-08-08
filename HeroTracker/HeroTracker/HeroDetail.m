@@ -16,9 +16,9 @@
     if (heroListDict)
     {
         aHero = [[HeroDetail alloc] init];
-        aHero.name = [heroListDict objectForKey:@"name"];
-        aHero.homeworld = heroListDict [@"homeworld"];
-        aHero.powers = [heroListDict objectForKey:@"powers"];
+        aHero.name = heroListDict[@"name"];
+//        aHero.homeworld = heroListDict [@"homeworld"];
+//        aHero.powers = [heroListDict objectForKey:@"powers"];
     }
     return aHero;
 }

@@ -8,6 +8,7 @@
 
 #import "HeroTableViewController.h"
 #import "HeroDetailViewController.h"
+#import "SearchViewController.h"
 #import "HeroDetail.h"
 #import "APIController.h"
 
@@ -23,7 +24,7 @@
     [super viewDidLoad];
     self.title = @"Hero Tracker";
     self.heroes = [[NSMutableArray alloc] init];
-    [self loadHeroes];
+    //[self loadHeroes];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -33,16 +34,16 @@
 
 
 
--(void)loadHeroes
-{
-    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"heroes" ofType:@"json"];
-    NSArray *heroesJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filepath] options:0 error:nil];
-    for(NSDictionary *aDict in heroesJSON)
-    {
-        HeroDetail *aHero = [HeroDetail heroListWithDictionary:aDict];
-        [self.heroes addObject: aHero];
-    }
-}
+//-(void)loadHeroes
+//{
+//    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"heroes" ofType:@"json"];
+//    NSArray *heroesJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filepath] options:0 error:nil];
+//    for(NSDictionary *aDict in heroesJSON)
+//    {
+//        HeroDetail *aHero = [HeroDetail heroListWithDictionary:aDict];
+//        [self.heroes addObject: aHero];
+//    }
+//}
 
 
 
@@ -52,7 +53,6 @@
 }
 
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -61,7 +61,6 @@
 {
     return self.heroes.count;
 }
-
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -83,7 +82,11 @@
 }
 -(void)didReceiveAPIResults:(NSDictionary *)marvelResponse
 {
-    
+    HeroDetail *aHero = [HeroDetail heroListWithDictionary:marvelResponse];
+    [self.heroes addObject:aHero];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
 }
 
 /*
@@ -135,13 +138,15 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"ShowDetailSegue"])
+    if ([segue.identifier isEqualToString:@"SearchHeroesSegue"])
     {
-        HeroDetailViewController *heroDetailVC = [segue destinationViewController];
-        UITableViewCell *selectedCell = (UITableViewCell *) sender;
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:selectedCell];
-        HeroDetail *selectedHero = self.heroes [indexPath.row];
-        heroDetailVC.hero = selectedHero;
+        SearchViewController *searchVC = [segue destinationViewController];
+        searchVC.delegate = self;
+//        HeroDetailViewController *heroDetailVC = [segue destinationViewController];
+//        UITableViewCell *selectedCell = (UITableViewCell *) sender;
+//        NSIndexPath *indexPath = [self.tableView indexPathForCell:selectedCell];
+//        HeroDetail *selectedHero = self.heroes [indexPath.row];
+//        heroDetailVC.hero = selectedHero;
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     }
