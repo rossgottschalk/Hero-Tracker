@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HeroTableViewController : UITableViewController
+@protocol SearchTextFieldDelegate
+-(void)searchWasTapped: (NSString *)heroToSearch;
+@end
 
+
+@protocol APIControllerProtocol
+-(void)didReceiveAPIResults: (NSDictionary *)marvelResponse;
+@end
+
+
+@interface HeroTableViewController : UITableViewController
 @end

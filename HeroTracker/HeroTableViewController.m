@@ -9,29 +9,29 @@
 #import "HeroTableViewController.h"
 #import "HeroDetailViewController.h"
 #import "HeroDetail.h"
+#import "APIController.h"
 
-@interface HeroTableViewController ()
-
+@interface HeroTableViewController () <SearchTextFieldDelegate, APIControllerProtocol>
 @property (strong, nonatomic) NSMutableArray *heroes;
-
 @end
 
-@implementation HeroTableViewController
+////[[APIController sharedAPIController]searchForCharacter: @"Hulk"]
 
+@implementation HeroTableViewController
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.title = @"Hero Tracker";
     self.heroes = [[NSMutableArray alloc] init];
     [self loadHeroes];
-    
-    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+
 
 -(void)loadHeroes
 {
@@ -40,17 +40,15 @@
     for(NSDictionary *aDict in heroesJSON)
     {
         HeroDetail *aHero = [HeroDetail heroListWithDictionary:aDict];
-        
         [self.heroes addObject: aHero];
-
     }
 }
 
 
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -59,28 +57,34 @@
 {
     return 1;
 }
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.heroes.count;
 }
 
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HeroListCell" forIndexPath:indexPath];
-    
-    // Configure the cell...
     HeroDetail *hero = self.heroes[indexPath.row];
-    
     cell.textLabel.text = hero.name;
-    
-    
-    
     return cell;
 }
 
 
-
+#pragma - Delegates
+-(void)searchWasTapped:(NSString *)heroToSearch
+{
+    APIController *apiController = [[APIController alloc] init];
+    apiController.delegate = self;
+    [apiController searchForCharacter:heroToSearch];
+    [self.tableView reloadData];
+}
+-(void)didReceiveAPIResults:(NSDictionary *)marvelResponse
+{
+    
+}
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

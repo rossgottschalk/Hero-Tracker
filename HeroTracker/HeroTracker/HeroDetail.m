@@ -19,9 +19,7 @@
         aHero.name = [heroListDict objectForKey:@"name"];
         aHero.homeworld = heroListDict [@"homeworld"];
         aHero.powers = [heroListDict objectForKey:@"powers"];
-        
     }
-    
     return aHero;
 }
 

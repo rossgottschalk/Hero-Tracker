@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B41E10B1D58FB94007E3BA4 /* APIController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B41E10A1D58FB94007E3BA4 /* APIController.m */; };
+		5B41E10E1D590DA1007E3BA4 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B41E10D1D590DA1007E3BA4 /* SearchViewController.m */; };
 		5BDF8A8A1D46CF1D00D4CBE6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF8A891D46CF1D00D4CBE6 /* main.m */; };
 		5BDF8A8D1D46CF1E00D4CBE6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF8A8C1D46CF1E00D4CBE6 /* AppDelegate.m */; };
 		5BDF8A931D46CF1E00D4CBE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF8A911D46CF1E00D4CBE6 /* Main.storyboard */; };
@@ -19,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B41E1091D58FB86007E3BA4 /* APIController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIController.h; sourceTree = "<group>"; };
+		5B41E10A1D58FB94007E3BA4 /* APIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIController.m; sourceTree = "<group>"; };
+		5B41E10C1D590DA1007E3BA4 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		5B41E10D1D590DA1007E3BA4 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		5BDF8A851D46CF1D00D4CBE6 /* HeroTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BDF8A891D46CF1D00D4CBE6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5BDF8A8B1D46CF1D00D4CBE6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -66,15 +72,19 @@
 		5BDF8A871D46CF1D00D4CBE6 /* HeroTracker */ = {
 			isa = PBXGroup;
 			children = (
+				5BDF8AA21D46E55400D4CBE6 /* heroes.json */,
 				5BDF8A8B1D46CF1D00D4CBE6 /* AppDelegate.h */,
 				5BDF8A8C1D46CF1E00D4CBE6 /* AppDelegate.m */,
 				5BDF8AA71D46EC4300D4CBE6 /* HeroTableViewController.h */,
 				5BDF8AA81D46EC4300D4CBE6 /* HeroTableViewController.m */,
 				5BDF8AAA1D46F34500D4CBE6 /* HeroDetail.h */,
 				5BDF8AAB1D46F34500D4CBE6 /* HeroDetail.m */,
-				5BDF8AA21D46E55400D4CBE6 /* heroes.json */,
 				5BDF8A9F1D46D80500D4CBE6 /* HeroDetailViewController.h */,
 				5BDF8AA01D46D80500D4CBE6 /* HeroDetailViewController.m */,
+				5B41E10C1D590DA1007E3BA4 /* SearchViewController.h */,
+				5B41E10D1D590DA1007E3BA4 /* SearchViewController.m */,
+				5B41E1091D58FB86007E3BA4 /* APIController.h */,
+				5B41E10A1D58FB94007E3BA4 /* APIController.m */,
 				5BDF8A911D46CF1E00D4CBE6 /* Main.storyboard */,
 				5BDF8A941D46CF1E00D4CBE6 /* Assets.xcassets */,
 				5BDF8A961D46CF1E00D4CBE6 /* LaunchScreen.storyboard */,
@@ -163,11 +173,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B41E10B1D58FB94007E3BA4 /* APIController.m in Sources */,
 				5BDF8AAC1D46F34500D4CBE6 /* HeroDetail.m in Sources */,
 				5BDF8AA11D46D80500D4CBE6 /* HeroDetailViewController.m in Sources */,
 				5BDF8AA91D46EC4300D4CBE6 /* HeroTableViewController.m in Sources */,
 				5BDF8A8D1D46CF1E00D4CBE6 /* AppDelegate.m in Sources */,
 				5BDF8A8A1D46CF1D00D4CBE6 /* main.m in Sources */,
+				5B41E10E1D590DA1007E3BA4 /* SearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

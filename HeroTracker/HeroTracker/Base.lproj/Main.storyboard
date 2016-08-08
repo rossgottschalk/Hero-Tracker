@@ -37,9 +37,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="tCR-8p-CmK" kind="show" identifier="ShowDetailSegue" action="showDetailViewController:sender:" id="qGs-3v-LcS"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -47,11 +44,72 @@
                             <outlet property="delegate" destination="SUc-lZ-nhI" id="d6j-Mb-Uwr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="sPL-6R-0X5"/>
+                    <navigationItem key="navigationItem" id="sPL-6R-0X5">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="fca-MI-EYD">
+                            <connections>
+                                <segue destination="nHy-0g-tra" kind="presentation" identifier="SearchHeroesSegue" id="pV3-y6-0Ge"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mG4-Vl-s3W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1093" y="177"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="zWl-pf-Mc1">
+            <objects>
+                <viewController id="nHy-0g-tra" customClass="SearchViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4f8-OX-Geo"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dil-4R-Jih"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HBE-YT-n9M">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search For Heroes..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g81-nD-ffO">
+                                <rect key="frame" x="40" y="70" width="520" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFo-1e-m3I">
+                                <rect key="frame" x="40" y="108" width="48" height="30"/>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="searchTapped:" destination="nHy-0g-tra" eventType="touchUpInside" id="XQB-4j-O4Y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGM-Gv-1gb">
+                                <rect key="frame" x="512" y="108" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelTapped:" destination="nHy-0g-tra" eventType="touchUpInside" id="3Pr-aA-vAB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="kGM-Gv-1gb" secondAttribute="trailing" constant="40" id="6w3-IF-d8G"/>
+                            <constraint firstItem="g81-nD-ffO" firstAttribute="top" secondItem="4f8-OX-Geo" secondAttribute="bottom" constant="50" id="Giy-JY-flj"/>
+                            <constraint firstItem="g81-nD-ffO" firstAttribute="leading" secondItem="HBE-YT-n9M" secondAttribute="leading" constant="40" id="Rvj-6u-GqQ"/>
+                            <constraint firstItem="aFo-1e-m3I" firstAttribute="leading" secondItem="HBE-YT-n9M" secondAttribute="leading" constant="40" id="TX6-OR-fjI"/>
+                            <constraint firstAttribute="trailing" secondItem="g81-nD-ffO" secondAttribute="trailing" constant="40" id="eB6-hp-ec2"/>
+                            <constraint firstItem="aFo-1e-m3I" firstAttribute="top" secondItem="g81-nD-ffO" secondAttribute="bottom" constant="8" id="mFx-hF-vtB"/>
+                            <constraint firstItem="kGM-Gv-1gb" firstAttribute="top" secondItem="g81-nD-ffO" secondAttribute="bottom" constant="8" id="r9c-ka-WkK"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="LQB-Wo-yOj"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="searchTextField" destination="g81-nD-ffO" id="aeO-Y1-3jV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rxu-zn-gw1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1857" y="177"/>
         </scene>
         <!--Hero Detail View Controller-->
         <scene sceneID="N5d-Iy-HNB">
@@ -72,14 +130,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="homeworldLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBu-VE-hn8">
-                                <rect key="frame" x="40" y="135" width="127" height="21"/>
+                                <rect key="frame" x="40" y="155" width="127" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="powerLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aY-cf-mgQ">
-                                <rect key="frame" x="40" y="296" width="520" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="powerLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aY-cf-mgQ">
+                                <rect key="frame" x="40" y="296" width="520" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -87,7 +145,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="UBu-VE-hn8" firstAttribute="leading" secondItem="ngo-X9-Gj9" secondAttribute="leading" constant="40" id="0HF-FV-f8B"/>
-                            <constraint firstItem="UBu-VE-hn8" firstAttribute="top" secondItem="Weq-8T-7cL" secondAttribute="bottom" constant="10" id="CGI-Cx-XXo"/>
+                            <constraint firstItem="UBu-VE-hn8" firstAttribute="top" secondItem="Weq-8T-7cL" secondAttribute="bottom" constant="30" id="CGI-Cx-XXo"/>
                             <constraint firstItem="3aY-cf-mgQ" firstAttribute="top" secondItem="UBu-VE-hn8" secondAttribute="bottom" constant="120" id="ECT-P9-Hnr"/>
                             <constraint firstItem="Weq-8T-7cL" firstAttribute="top" secondItem="ngo-X9-Gj9" secondAttribute="top" constant="50" id="EHB-3n-K9t"/>
                             <constraint firstItem="UBu-VE-hn8" firstAttribute="top" secondItem="Weq-8T-7cL" secondAttribute="bottom" constant="20" id="Lij-e3-Jlj"/>
@@ -121,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oHf-Vn-LVx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1831" y="177"/>
+            <point key="canvasLocation" x="2684" y="246"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="x7E-Ed-h4E">
