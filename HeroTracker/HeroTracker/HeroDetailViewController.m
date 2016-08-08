@@ -20,6 +20,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"Hero Bio";
+    self.heroNameLabel.text = self.hero.name;
+    self.homeworldLabel.text = self.hero.homeworld;
+    self.powerLabel.text = self.hero.powers;
+    
     // Do any additional setup after loading the view.
 }
 

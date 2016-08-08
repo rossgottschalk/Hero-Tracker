@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HeroList : NSObject
+@interface HeroDetail : NSObject
 
 @property (nonatomic) NSString *name;
-@property (nonatomic) NSString *planet;
+@property (nonatomic) NSString *homeworld;
 @property (nonatomic) NSString *powers;
 
-+ (HeroList *)heroListWithDictionary:(NSDictionary *) heroListDict;
++ (HeroDetail *)heroListWithDictionary:(NSDictionary *) heroListDict;
 
 
 @end

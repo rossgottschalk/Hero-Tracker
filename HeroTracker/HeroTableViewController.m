@@ -8,11 +8,11 @@
 
 #import "HeroTableViewController.h"
 #import "HeroDetailViewController.h"
-#import "Hero.h"
+#import "HeroDetail.h"
 
 @interface HeroTableViewController ()
 
-@property (strong, nonatomic) NSArray *heroes;
+@property (strong, nonatomic) NSMutableArray *heroes;
 
 @end
 
@@ -22,19 +22,27 @@
 {
     [super viewDidLoad];
     self.title = @"Hero Tracker";
-    self.heroes = [[NSArray alloc] init];
+    self.heroes = [[NSMutableArray alloc] init];
+    [self loadHeroes];
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
 
+-(void)loadHeroes
+{
     NSString *filepath = [[NSBundle mainBundle] pathForResource:@"heroes" ofType:@"json"];
     NSArray *heroesJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filepath] options:0 error:nil];
     for(NSDictionary *aDict in heroesJSON)
     {
-        HeroList *aHero = [HeroList heroListWithDictionary:aDict];
+        HeroDetail *aHero = [HeroDetail heroListWithDictionary:aDict];
         
+        [self.heroes addObject: aHero];
+
     }
 }
 
@@ -49,7 +57,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -62,7 +70,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HeroListCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    HeroList *hero = self.heroes[indexPath.row];
+    HeroDetail *hero = self.heroes[indexPath.row];
+    
     cell.textLabel.text = hero.name;
     
     
@@ -109,7 +118,7 @@
 }
 */
 
-/*
+
 // Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the item to be re-orderable.
@@ -120,10 +129,18 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"ShowDetailSegue"])
+    {
+        HeroDetailViewController *heroDetailVC = [segue destinationViewController];
+        UITableViewCell *selectedCell = (UITableViewCell *) sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:selectedCell];
+        HeroDetail *selectedHero = self.heroes [indexPath.row];
+        heroDetailVC.hero = selectedHero;
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    }
 }
-*/
 
 @end

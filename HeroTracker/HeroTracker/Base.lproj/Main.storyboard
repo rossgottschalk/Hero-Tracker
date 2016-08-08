@@ -37,6 +37,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="tCR-8p-CmK" kind="show" identifier="ShowDetailSegue" action="showDetailViewController:sender:" id="qGs-3v-LcS"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -63,33 +66,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="heroNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Weq-8T-7cL">
-                                <rect key="frame" x="40" y="30" width="121" height="21"/>
+                                <rect key="frame" x="40" y="104" width="121" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="homeworldLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBu-VE-hn8">
-                                <rect key="frame" x="40" y="71" width="127" height="21"/>
+                                <rect key="frame" x="40" y="135" width="127" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="powerLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aY-cf-mgQ">
-                                <rect key="frame" x="40" y="100" width="89" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="powerLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aY-cf-mgQ">
+                                <rect key="frame" x="40" y="296" width="520" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="UBu-VE-hn8" firstAttribute="leading" secondItem="ngo-X9-Gj9" secondAttribute="leading" constant="40" id="0HF-FV-f8B"/>
+                            <constraint firstItem="UBu-VE-hn8" firstAttribute="top" secondItem="Weq-8T-7cL" secondAttribute="bottom" constant="10" id="CGI-Cx-XXo"/>
+                            <constraint firstItem="3aY-cf-mgQ" firstAttribute="top" secondItem="UBu-VE-hn8" secondAttribute="bottom" constant="120" id="ECT-P9-Hnr"/>
+                            <constraint firstItem="Weq-8T-7cL" firstAttribute="top" secondItem="ngo-X9-Gj9" secondAttribute="top" constant="50" id="EHB-3n-K9t"/>
                             <constraint firstItem="UBu-VE-hn8" firstAttribute="top" secondItem="Weq-8T-7cL" secondAttribute="bottom" constant="20" id="Lij-e3-Jlj"/>
+                            <constraint firstItem="Weq-8T-7cL" firstAttribute="leading" secondItem="ngo-X9-Gj9" secondAttribute="leading" constant="40" id="QEz-eT-aB7"/>
                             <constraint firstItem="Weq-8T-7cL" firstAttribute="top" secondItem="Wyd-aj-OHs" secondAttribute="bottom" constant="10" id="UFy-JN-oYe"/>
                             <constraint firstItem="3aY-cf-mgQ" firstAttribute="leading" secondItem="ngo-X9-Gj9" secondAttribute="leading" constant="40" id="Y17-38-XyW"/>
+                            <constraint firstAttribute="trailing" secondItem="3aY-cf-mgQ" secondAttribute="trailing" constant="40" id="gO5-0w-Hcq"/>
                             <constraint firstItem="3aY-cf-mgQ" firstAttribute="top" secondItem="UBu-VE-hn8" secondAttribute="bottom" constant="8" id="isK-pi-3z0"/>
+                            <constraint firstItem="3aY-cf-mgQ" firstAttribute="leading" secondItem="ngo-X9-Gj9" secondAttribute="leading" constant="40" id="jdT-R1-JQJ"/>
+                            <constraint firstItem="Weq-8T-7cL" firstAttribute="top" secondItem="Wyd-aj-OHs" secondAttribute="bottom" constant="40" id="rKl-ss-D6D"/>
                             <constraint firstItem="UBu-VE-hn8" firstAttribute="leading" secondItem="ngo-X9-Gj9" secondAttribute="leading" constant="40" id="rOC-xX-fOu"/>
                             <constraint firstItem="Weq-8T-7cL" firstAttribute="leading" secondItem="ngo-X9-Gj9" secondAttribute="leading" constant="40" id="seD-L3-Wod"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="EHB-3n-K9t"/>
+                                <exclude reference="UFy-JN-oYe"/>
+                                <exclude reference="seD-L3-Wod"/>
+                                <exclude reference="Lij-e3-Jlj"/>
+                                <exclude reference="rOC-xX-fOu"/>
+                                <exclude reference="Y17-38-XyW"/>
+                                <exclude reference="isK-pi-3z0"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="heroNameLabel" destination="Weq-8T-7cL" id="J0v-6P-kNt"/>

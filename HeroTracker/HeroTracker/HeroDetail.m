@@ -6,18 +6,18 @@
 //  Copyright © 2016 The Iron Yard. All rights reserved.
 //
 
-#import "Hero.h"
+#import "HeroDetail.h"
 
-@implementation HeroList
+@implementation HeroDetail
 
-+ (HeroList *)heroListWithDictionary:(NSDictionary *) heroListDict;
++ (HeroDetail *)heroListWithDictionary:(NSDictionary *) heroListDict;
 {
-    HeroList *aHero = nil;
+    HeroDetail *aHero = nil;
     if (heroListDict)
     {
-        aHero = [[HeroList alloc] init];
+        aHero = [[HeroDetail alloc] init];
         aHero.name = [heroListDict objectForKey:@"name"];
-        aHero.planet = heroListDict [@"planet"];
+        aHero.homeworld = heroListDict [@"homeworld"];
         aHero.powers = [heroListDict objectForKey:@"powers"];
         
     }
