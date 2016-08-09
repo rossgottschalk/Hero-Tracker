@@ -75,7 +75,7 @@
 #pragma - Delegates
 -(void)searchWasTapped:(NSString *)heroToSearch
 {
-    APIController *apiController = [[APIController alloc] init];
+    APIController *apiController = [APIController sharedAPIController];
     apiController.delegate = self;
     [apiController searchForCharacter:heroToSearch];
     [self.tableView reloadData];
@@ -150,6 +150,16 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     }
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    HeroDetailViewController *heroDetailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailVC"];
+    [[self navigationController] pushViewController:heroDetailVC animated:YES];
+    HeroDetail *selectedHero = self.heroes[indexPath.row];
+    heroDetailVC.hero = selectedHero;
 }
 
 @end

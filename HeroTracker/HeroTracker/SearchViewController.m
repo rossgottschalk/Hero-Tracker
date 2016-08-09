@@ -18,6 +18,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.searchTextField becomeFirstResponder];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

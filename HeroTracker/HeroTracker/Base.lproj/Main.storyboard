@@ -25,7 +25,7 @@
                                             <rect key="frame" x="15" y="12" width="32" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6y7-lA-blp">
@@ -56,6 +56,67 @@
             </objects>
             <point key="canvasLocation" x="1093" y="177"/>
         </scene>
+        <!--Hero Detail View Controller-->
+        <scene sceneID="srk-Sd-3st">
+            <objects>
+                <viewController storyboardIdentifier="DetailVC" id="I4l-ia-dKi" customClass="HeroDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oYh-4d-WL7"/>
+                        <viewControllerLayoutGuide type="bottom" id="9bR-c5-Og4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qrl-7w-H12">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pUp-8B-hr4">
+                                <rect key="frame" x="180" y="40" width="240" height="280"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Uwm-X5-vFr"/>
+                                    <constraint firstAttribute="height" constant="280" id="n9W-ph-fFX"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKb-Ii-iKM">
+                                <rect key="frame" x="258" y="328" width="84" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="descriptionLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oil-K3-oUR">
+                                <rect key="frame" x="40" y="389" width="520" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Oil-K3-oUR" secondAttribute="trailing" constant="40" id="0w4-bN-ayQ"/>
+                            <constraint firstItem="pUp-8B-hr4" firstAttribute="centerX" secondItem="HKb-Ii-iKM" secondAttribute="centerX" id="3Ec-7B-6p9"/>
+                            <constraint firstItem="pUp-8B-hr4" firstAttribute="centerX" secondItem="qrl-7w-H12" secondAttribute="centerX" id="9bE-Yg-RhH"/>
+                            <constraint firstItem="pUp-8B-hr4" firstAttribute="top" secondItem="qrl-7w-H12" secondAttribute="top" constant="40" id="Bjj-6t-GoJ"/>
+                            <constraint firstItem="HKb-Ii-iKM" firstAttribute="top" secondItem="oYh-4d-WL7" secondAttribute="bottom" constant="40" id="CKr-Eo-www"/>
+                            <constraint firstItem="HKb-Ii-iKM" firstAttribute="top" secondItem="pUp-8B-hr4" secondAttribute="bottom" constant="8" id="H85-8b-5xK"/>
+                            <constraint firstItem="Oil-K3-oUR" firstAttribute="top" secondItem="HKb-Ii-iKM" secondAttribute="bottom" constant="40" id="PIY-WH-tJZ"/>
+                            <constraint firstItem="HKb-Ii-iKM" firstAttribute="leading" secondItem="qrl-7w-H12" secondAttribute="leading" constant="40" id="hFO-zQ-5cW"/>
+                            <constraint firstItem="Oil-K3-oUR" firstAttribute="leading" secondItem="qrl-7w-H12" secondAttribute="leading" constant="40" id="vy9-Wj-9nL"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="CKr-Eo-www"/>
+                                <exclude reference="hFO-zQ-5cW"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="heroDescriptionLabel" destination="Oil-K3-oUR" id="Txf-Gn-pDP"/>
+                        <outlet property="heroImageView" destination="pUp-8B-hr4" id="J57-c9-8jr"/>
+                        <outlet property="nameLabel" destination="HKb-Ii-iKM" id="7Ak-BK-fV6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ihy-SC-u8C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1851" y="-176"/>
+        </scene>
         <!--Search View Controller-->
         <scene sceneID="zWl-pf-Mc1">
             <objects>
@@ -68,11 +129,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search For Heroes..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g81-nD-ffO">
-                                <rect key="frame" x="40" y="70" width="520" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFo-1e-m3I">
                                 <rect key="frame" x="40" y="108" width="48" height="30"/>
                                 <state key="normal" title="Search"/>
@@ -87,6 +143,11 @@
                                     <action selector="cancelTapped:" destination="nHy-0g-tra" eventType="touchUpInside" id="3Pr-aA-vAB"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search For Heroes..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g81-nD-ffO">
+                                <rect key="frame" x="40" y="70" width="520" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -109,77 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rxu-zn-gw1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1857" y="177"/>
-        </scene>
-        <!--Hero Detail View Controller-->
-        <scene sceneID="N5d-Iy-HNB">
-            <objects>
-                <viewController id="tCR-8p-CmK" customClass="HeroDetailViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Wyd-aj-OHs"/>
-                        <viewControllerLayoutGuide type="bottom" id="WAd-ob-P8G"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ngo-X9-Gj9">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="heroNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Weq-8T-7cL">
-                                <rect key="frame" x="40" y="104" width="121" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="homeworldLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBu-VE-hn8">
-                                <rect key="frame" x="40" y="155" width="127" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="powerLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aY-cf-mgQ">
-                                <rect key="frame" x="40" y="296" width="520" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="UBu-VE-hn8" firstAttribute="leading" secondItem="ngo-X9-Gj9" secondAttribute="leading" constant="40" id="0HF-FV-f8B"/>
-                            <constraint firstItem="UBu-VE-hn8" firstAttribute="top" secondItem="Weq-8T-7cL" secondAttribute="bottom" constant="30" id="CGI-Cx-XXo"/>
-                            <constraint firstItem="3aY-cf-mgQ" firstAttribute="top" secondItem="UBu-VE-hn8" secondAttribute="bottom" constant="120" id="ECT-P9-Hnr"/>
-                            <constraint firstItem="Weq-8T-7cL" firstAttribute="top" secondItem="ngo-X9-Gj9" secondAttribute="top" constant="50" id="EHB-3n-K9t"/>
-                            <constraint firstItem="UBu-VE-hn8" firstAttribute="top" secondItem="Weq-8T-7cL" secondAttribute="bottom" constant="20" id="Lij-e3-Jlj"/>
-                            <constraint firstItem="Weq-8T-7cL" firstAttribute="leading" secondItem="ngo-X9-Gj9" secondAttribute="leading" constant="40" id="QEz-eT-aB7"/>
-                            <constraint firstItem="Weq-8T-7cL" firstAttribute="top" secondItem="Wyd-aj-OHs" secondAttribute="bottom" constant="10" id="UFy-JN-oYe"/>
-                            <constraint firstItem="3aY-cf-mgQ" firstAttribute="leading" secondItem="ngo-X9-Gj9" secondAttribute="leading" constant="40" id="Y17-38-XyW"/>
-                            <constraint firstAttribute="trailing" secondItem="3aY-cf-mgQ" secondAttribute="trailing" constant="40" id="gO5-0w-Hcq"/>
-                            <constraint firstItem="3aY-cf-mgQ" firstAttribute="top" secondItem="UBu-VE-hn8" secondAttribute="bottom" constant="8" id="isK-pi-3z0"/>
-                            <constraint firstItem="3aY-cf-mgQ" firstAttribute="leading" secondItem="ngo-X9-Gj9" secondAttribute="leading" constant="40" id="jdT-R1-JQJ"/>
-                            <constraint firstItem="Weq-8T-7cL" firstAttribute="top" secondItem="Wyd-aj-OHs" secondAttribute="bottom" constant="40" id="rKl-ss-D6D"/>
-                            <constraint firstItem="UBu-VE-hn8" firstAttribute="leading" secondItem="ngo-X9-Gj9" secondAttribute="leading" constant="40" id="rOC-xX-fOu"/>
-                            <constraint firstItem="Weq-8T-7cL" firstAttribute="leading" secondItem="ngo-X9-Gj9" secondAttribute="leading" constant="40" id="seD-L3-Wod"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="EHB-3n-K9t"/>
-                                <exclude reference="UFy-JN-oYe"/>
-                                <exclude reference="seD-L3-Wod"/>
-                                <exclude reference="Lij-e3-Jlj"/>
-                                <exclude reference="rOC-xX-fOu"/>
-                                <exclude reference="Y17-38-XyW"/>
-                                <exclude reference="isK-pi-3z0"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <connections>
-                        <outlet property="heroNameLabel" destination="Weq-8T-7cL" id="J0v-6P-kNt"/>
-                        <outlet property="homeworldLabel" destination="UBu-VE-hn8" id="iqK-2a-Hhv"/>
-                        <outlet property="powerLabel" destination="3aY-cf-mgQ" id="FlF-NB-xZO"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oHf-Vn-LVx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2684" y="246"/>
+            <point key="canvasLocation" x="1851" y="613"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="x7E-Ed-h4E">

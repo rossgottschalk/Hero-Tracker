@@ -16,9 +16,22 @@
     if (heroListDict)
     {
         aHero = [[HeroDetail alloc] init];
-        aHero.name = heroListDict[@"name"];
-//        aHero.homeworld = heroListDict [@"homeworld"];
-//        aHero.powers = [heroListDict objectForKey:@"powers"];
+        NSDictionary *dataDict = heroListDict[@"data"];
+        NSArray *results = dataDict [@"results"];
+        for (NSDictionary *result in results)
+        {
+            NSString *name = result[@"name"];
+            aHero.name = name;
+            
+            NSString *aDescription = result[@"description"];
+            aHero.aDescription = aDescription;
+            
+            NSDictionary *imageDict = result[@"thumbnail"];
+            NSString *image = imageDict[@"path"];
+            aHero.heroImage = [NSString stringWithFormat:@"%@.jpg", image];
+            //        aHero.homeworld = heroListDict [@"homeworld"];
+            //        aHero.powers = [heroListDict objectForKey:@"powers"];
+        }
     }
     return aHero;
 }

@@ -20,7 +20,7 @@
 static NSString *marvelCharacterSearchUrl = @"https://gateway.marvel.com/v1/public/characters?ts=%@&name=%@&apikey=%@&hash=%@";
 
 static NSString *publicAPIKey = @"555ca6b17b252b117fa5e6e3b373e813";
-static NSString *privateAPIKey = @"79a51a13f6f42dc90983fc017212c1c80ab43da7";
+static NSString *privateAPIKey = @"Nice try, Russian hackers!";
 
 + (APIController *)sharedAPIController
 {
@@ -75,7 +75,7 @@ static NSString *privateAPIKey = @"79a51a13f6f42dc90983fc017212c1c80ab43da7";
             if (characterInfo)
             {
                 NSLog(@"characterInfo: %@", characterInfo);
-                //edit this stuff^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                [self.delegate didReceiveAPIResults:characterInfo];
             }
         }
     }];

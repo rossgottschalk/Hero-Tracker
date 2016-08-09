@@ -9,10 +9,11 @@
 #import "HeroDetailViewController.h"
 
 @interface HeroDetailViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+-(void) configureView;
+@property (weak, nonatomic) IBOutlet UIImageView *heroImageView;
+@property (weak, nonatomic) IBOutlet UILabel *heroDescriptionLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *heroNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *homeworldLabel;
-@property (weak, nonatomic) IBOutlet UILabel *powerLabel;
 
 @end
 
@@ -20,6 +21,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self configureView];
+    
+    
 //    self.title = @"Hero Bio";
 //    self.heroNameLabel.text = self.hero.name;
 //    self.homeworldLabel.text = self.hero.homeworld;
@@ -32,6 +36,32 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+- (void)setHero:(HeroDetail *)newHero
+{
+    if (_hero != newHero)
+    {
+        _hero = newHero;
+        
+        // Update the view.
+        [self configureView];
+    }
+}
+
+
+- (void)configureView
+{
+    
+    if (self.hero)
+    {
+        NSData *image = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:self.hero.heroImage]];
+        self.heroImageView.image = [UIImage imageWithData: image];
+        self.nameLabel.text = self.hero.name;
+        self.heroDescriptionLabel.text = self.hero.aDescription;
+    }
+}
+
 
 /*
 #pragma mark - Navigation

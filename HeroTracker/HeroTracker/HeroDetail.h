@@ -13,6 +13,10 @@
 
 
 @property (nonatomic) NSString *name;
+@property (nonatomic) NSString *aDescription;
+@property (nonatomic) NSString *heroImage;
+
+
 //@property (nonatomic) NSString *homeworld;
 //@property (nonatomic) NSString *powers;
 
