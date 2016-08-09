@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Hero.h"
+#import "HeroDetail.h"
 
 @interface HeroDetailViewController : UIViewController
 
-@property (nonatomic) HeroList *hero;
+@property (nonatomic) HeroDetail *hero;
+
+
 
 
 @end
